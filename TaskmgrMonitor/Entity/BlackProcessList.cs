@@ -1,30 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
 namespace TaskmgrMonitor.Entity
 {
     /// <summary>
-    /// 白名单进程列表
+    /// 黑名单进程列表
     /// </summary>
     [XmlRoot("processList")]
-    public class WhiteProcessList
+    public class BlackProcessList
     {
-        private static WhiteProcessList processListInstance;
+        private static BlackProcessList processListInstance;
 
-        public static WhiteProcessList processList
+        public static BlackProcessList processList
         {
             get
             {
                 if (processListInstance == null)
-                    processListInstance = new WhiteProcessList();
+                    processListInstance = new BlackProcessList();
                 return processListInstance;
             }
         }
 
-        private WhiteProcessList() { }
+        private BlackProcessList() { }
 
         [XmlElement("processes")]
         public List<MyProcess> processes = new List<MyProcess>();

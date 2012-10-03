@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Resources;
 using System.Text;
 using System.Windows.Forms;
@@ -27,7 +26,7 @@ namespace TaskmgrMonitor
         private void WhiteList_Load(object sender, EventArgs e)
         {
             listBox.Items.Clear();
-            processList = XmlControl.Get(".\\process.xml");
+            processList = XmlControl.GetWhite(".\\process.xml");
             foreach (MyProcess p in processList.processes)
             {
                 listBox.Items.Add(p.processName);
@@ -43,7 +42,7 @@ namespace TaskmgrMonitor
             {
                 listBox.Items.Add(name);
                 processList.processes.Add(new MyProcess(name));
-                XmlControl.Set(".\\process.xml", processList);
+                XmlControl.SetWhite(".\\process.xml", processList);
             }
         }
 
@@ -61,7 +60,7 @@ namespace TaskmgrMonitor
             {
                 processList.processes.Add(new MyProcess(s));
             }
-            XmlControl.Set(".\\process.xml", processList);
+            XmlControl.SetWhite(".\\process.xml", processList);
         }
 
         private void listBox_MouseClick(object sender, MouseEventArgs e)

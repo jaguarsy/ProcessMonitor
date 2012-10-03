@@ -32,7 +32,7 @@ namespace TaskmgrMonitor
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            whiteProcessList = XmlControl.Get(@".\process.xml");
+            whiteProcessList = XmlControl.GetWhite(@".\process.xml");
         }
 
         //刷新数据
@@ -139,7 +139,7 @@ namespace TaskmgrMonitor
                         {
                             //添加过程
                             whiteProcessList.processes.Add(new MyProcess(s));
-                            XmlControl.Set(@".\process.xml", whiteProcessList);
+                            XmlControl.SetWhite(@".\process.xml", whiteProcessList);
                             MessageBox.Show("添加成功！", "提示");
                         }
                         else
@@ -204,7 +204,7 @@ namespace TaskmgrMonitor
                         else
                         {
                             whiteProcessList.processes.Add(new MyProcess(mp.processName));
-                            XmlControl.Set(@".\process.xml", whiteProcessList);
+                            XmlControl.SetWhite(@".\process.xml", whiteProcessList);
                         }
                         //重新开启
                         timer.Start();

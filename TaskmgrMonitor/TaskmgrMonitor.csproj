@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TaskmgrMonitor</RootNamespace>
     <AssemblyName>TaskmgrMonitor</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,10 +37,6 @@
       <HintPath>..\..\..\..\..\Desktop\HADB-com.haoest.Forms-73d1c9b\com.haoest.Forms\bin\Debug\com.haoest.Forms.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -47,9 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlackListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BlackListForm.Designer.cs">
+      <DependentUpon>BlackListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controller\XmlControl.cs" />
+    <Compile Include="Entity\BlackProcessList.cs" />
     <Compile Include="Entity\Process.cs" />
-    <Compile Include="Entity\ProcessList.cs" />
+    <Compile Include="Entity\WhiteProcessList.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +74,9 @@
     <Compile Include="WhiteListForm.Designer.cs">
       <DependentUpon>WhiteListForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BlackListForm.resx">
+      <DependentUpon>BlackListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +96,7 @@
     <EmbeddedResource Include="WhiteListForm.resx">
       <DependentUpon>WhiteListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
