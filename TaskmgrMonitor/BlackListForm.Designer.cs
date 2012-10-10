@@ -87,6 +87,7 @@
             this.Name = "BlackListForm";
             this.Padding = new System.Windows.Forms.Padding(0);
             this.Text = "黑名单";
+            this.Load += new System.EventHandler(this.BlackListForm_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

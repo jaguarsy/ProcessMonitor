@@ -45,11 +45,16 @@ namespace TaskmgrMonitor
 
         private void timer_Tick(object sender, EventArgs e)
         {
+            //进度条减少10
             progressBar1.PerformStep();
+            //判断进度条是否走完
             if (progressBar1.Value == 0)
             {
+                //停止计时器
                 timer.Stop();
+                //渐变关闭窗口特效方法
                 AnimateWindow(this.FindForm().Handle, 400, AW_BLEND | AW_HIDE | AW_CENTER);
+                //设置对话框结果值为Cancel
                 this.DialogResult = DialogResult.Cancel;
                 this.Close();
             }
@@ -62,7 +67,7 @@ namespace TaskmgrMonitor
         /// <param name="dwTime"></param>
         /// <param name="dwFlags"></param>
         /// <returns></returns>
-        [System.Runtime.InteropServices.DllImport("user32")]       //使用AnimateWindow（）函数必备
+        [System.Runtime.InteropServices.DllImport("user32")] //使用AnimateWindow（）函数必备
         public static extern bool AnimateWindow(IntPtr hwnd, int dwTime, int dwFlags);
 
         /// <summary>
@@ -73,15 +78,20 @@ namespace TaskmgrMonitor
         /// <returns>返回结果</returns>
         public static DialogResult popShow(string Title, string Text)
         {
+            //实例化一个popForm
             PopForm popForm = new PopForm();
+            //设置窗体的标题
             popForm.labelTitle.Text = Title;
+            //设置提示内容
             popForm.labelText.Text = Text;
+            //显示窗口，获取对话框结果
             DialogResult result = popForm.ShowDialog();
             return result;
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            //设置对话框结果为OK
             this.DialogResult = DialogResult.OK;
         }
 

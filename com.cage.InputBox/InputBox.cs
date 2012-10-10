@@ -106,7 +106,7 @@ namespace com.cage.InputBox
             this.labelTitle.Location = new System.Drawing.Point(0, 0);
             this.labelTitle.Margin = new System.Windows.Forms.Padding(0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(267, 30);
+            this.labelTitle.Size = new System.Drawing.Size(267, 25);
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "标题";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -125,13 +125,14 @@ namespace com.cage.InputBox
             // 
             // buttonOK
             // 
-            this.buttonOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonOK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonOK.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonOK.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLight;
             this.buttonOK.FlatAppearance.BorderSize = 0;
             this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOK.Location = new System.Drawing.Point(270, 0);
+            this.buttonOK.Location = new System.Drawing.Point(273, 0);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(57, 34);
+            this.buttonOK.Size = new System.Drawing.Size(54, 34);
             this.buttonOK.TabIndex = 3;
             this.buttonOK.Text = "确定";
             this.buttonOK.UseVisualStyleBackColor = true;

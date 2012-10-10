@@ -54,6 +54,7 @@
     <Compile Include="Entity\BlackProcessList.cs" />
     <Compile Include="Entity\Process.cs" />
     <Compile Include="Entity\WhiteProcessList.cs" />
+    <Compile Include="GlobalOptions\GlobalConstants.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

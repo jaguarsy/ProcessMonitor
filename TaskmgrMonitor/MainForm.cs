@@ -10,6 +10,7 @@ using com.haoest.Forms;
 using System.Threading;
 using TaskmgrMonitor.Controller;
 using TaskmgrMonitor.Entity;
+using TaskmgrMonitor.GlobalOptions;
 
 namespace TaskmgrMonitor
 {
@@ -17,8 +18,11 @@ namespace TaskmgrMonitor
     {
         //进程列表
         private Process[] sysProcess;
-        //白名单列表
+        //白名单窗口
         private WhiteListForm whiteList = new WhiteListForm();
+        //黑名单窗口
+        private BlackListForm blackList = new BlackListForm();
+        //白名单进程列表
         private WhiteProcessList whiteProcessList = WhiteProcessList.processList;
 
         public MainForm()
@@ -32,7 +36,8 @@ namespace TaskmgrMonitor
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            whiteProcessList = XmlControl.GetWhite(@".\process.xml");
+            whiteProcessList = XmlControl.GetWhite(GlobalConstants.WHITE_LIST_PATH);
+            GetAllProcess();
         }
 
         //刷新数据
@@ -124,6 +129,12 @@ namespace TaskmgrMonitor
             whiteList.ShowDialog();
         }
 
+        //显示黑名单
+        private void btBlackList_Click(object sender, EventArgs e)
+        {
+            blackList.ShowDialog();
+        }
+
         //添加到白名单
         private void ToolStripMenuItemAddWhite_Click(object sender, EventArgs e)
         {
@@ -139,7 +150,7 @@ namespace TaskmgrMonitor
                         {
                             //添加过程
                             whiteProcessList.processes.Add(new MyProcess(s));
-                            XmlControl.SetWhite(@".\process.xml", whiteProcessList);
+                            XmlControl.SetWhite(GlobalConstants.WHITE_LIST_PATH, whiteProcessList);
                             MessageBox.Show("添加成功！", "提示");
                         }
                         else
@@ -204,7 +215,7 @@ namespace TaskmgrMonitor
                         else
                         {
                             whiteProcessList.processes.Add(new MyProcess(mp.processName));
-                            XmlControl.SetWhite(@".\process.xml", whiteProcessList);
+                            XmlControl.SetWhite(GlobalConstants.WHITE_LIST_PATH, whiteProcessList);
                         }
                         //重新开启
                         timer.Start();

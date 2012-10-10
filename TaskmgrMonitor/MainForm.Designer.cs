@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.开始获取ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +49,7 @@
             this.从白名单删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.buttonSetMonitor = new System.Windows.Forms.Button();
+            this.btBlackList = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -56,6 +58,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btBlackList);
             this.panel2.Controls.Add(this.buttonSetMonitor);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.buttonMonitor);
@@ -137,8 +140,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -227,11 +230,25 @@
             this.buttonSetMonitor.Text = "监控设置";
             this.buttonSetMonitor.UseVisualStyleBackColor = false;
             // 
+            // btBlackList
+            // 
+            this.btBlackList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btBlackList.FlatAppearance.BorderSize = 0;
+            this.btBlackList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBlackList.Location = new System.Drawing.Point(295, 375);
+            this.btBlackList.Name = "btBlackList";
+            this.btBlackList.Size = new System.Drawing.Size(65, 30);
+            this.btBlackList.TabIndex = 7;
+            this.btBlackList.Text = "黑名单";
+            this.btBlackList.UseVisualStyleBackColor = false;
+            this.btBlackList.Click += new System.EventHandler(this.btBlackList_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(467, 479);
+            this.FormIconImage = ((System.Drawing.Image)(resources.GetObject("$this.FormIconImage")));
             this.MainMenu = this.menuStrip;
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
@@ -269,6 +286,7 @@
         private System.Windows.Forms.ToolStripMenuItem 从白名单删除ToolStripMenuItem;
         private System.Windows.Forms.Button buttonSetMonitor;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button btBlackList;
     }
 }
 
